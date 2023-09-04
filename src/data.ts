@@ -1,3 +1,6 @@
+import {delay, Observable, of} from "rxjs";
+import {ICardsProductInterface} from "./shared/intarfaces/cards-product.interface";
+
 export const products = [
 
   {
@@ -82,3 +85,5 @@ export const products = [
     ],
   },
 ];
+
+export const  products$: Observable<ICardsProductInterface[]>=of(products).pipe(delay(1500))

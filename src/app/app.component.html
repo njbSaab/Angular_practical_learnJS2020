@@ -3,6 +3,26 @@
   [headerTitle]="title"
 ></app-header>
 
-<app-nav-bar [toggleValue]="appChanges"></app-nav-bar>
+<app-nav-bar [toggleValue]="appChangesToggleValue">
+  <!--left side -->
+  <!--  <ng-content>-->
+  <div class="navbar_menu" (click)="onClickLeftSideMenu()">
+    <ul>
+      <li>Products</li>
+      <li>Category</li>
+      <li>Sale</li>
+    </ul>
+  </div>
+  <!--  </ng-content>-->
+
+
+  <ng-template #contentTemplate>
+    <div>
+      {{products | json}}
+    </div>
+  </ng-template>
+
+</app-nav-bar>
+
 
 

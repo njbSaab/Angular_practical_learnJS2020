@@ -1,4 +1,4 @@
-export interface CardsProductInterface{
+export interface ICardsProductInterface{
   id: number;
   title: string;
   description: string;
@@ -14,7 +14,7 @@ export interface CardsProductInterface{
 }
 export interface firstProductVersion{
   limit: number;
-  products: CardsProductInterface[];
+  products: ICardsProductInterface[];
   skip: number;
   total: number;
 }
