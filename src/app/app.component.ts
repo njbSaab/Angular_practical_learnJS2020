@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular_practic_lernJS2020';
+  public appChanges = false;
+  public title = 'Angular_learnJS2020';
+
+  public handleToggleChanges(isToggleValue: boolean){
+    this.appChanges = isToggleValue
+  }
+
 }
