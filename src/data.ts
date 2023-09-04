@@ -86,4 +86,4 @@ export const products = [
   },
 ];
 
-export const  products$: Observable<ICardsProductInterface[]>=of(products).pipe(delay(1500))
+export const products$: Observable<ICardsProductInterface[]>=of(products).pipe(delay(1500))

@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ICardsProductInterface} from "../shared/intarfaces/cards-product.interface";
-import {products, products$} from "../data";
+import {products$} from "../data";
 import {Unsubscribe} from "./utils/unsubscribe";
-import {takeUntil} from "rxjs";
+import {Observable, Observer} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -14,6 +14,10 @@ export class AppComponent extends Unsubscribe implements OnInit{
   public appChangesToggleValue = false;
   public title = 'Angular_learnJS2020';
 
+  //with pipe async
+  public appProducts$: Observable<ICardsProductInterface[]> = products$;
+
+
   public handleToggleChanges(isToggleValue: boolean){
     this.appChangesToggleValue = isToggleValue
   }
@@ -23,10 +27,16 @@ export class AppComponent extends Unsubscribe implements OnInit{
   }
 
   ngOnInit(): void {
-    products$
-      .pipe(takeUntil(this.unSuUnsubscribe$))
-      .subscribe((p) => {
-      this.products = p
-    })
+
   }
+
+  // fore unsubscribe without pipe
+  // ngOnInit(): void {
+  //   products$
+  //     .pipe(takeUntil(this.unSuUnsubscribe$))
+  //     .subscribe((p) => {
+  //     this.products = p
+  //   })
+  // }
+
 }

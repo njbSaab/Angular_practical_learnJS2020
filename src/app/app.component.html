@@ -17,9 +17,9 @@
 
 
   <ng-template #contentTemplate>
-    <div>
-      {{products | json}}
-    </div>
+    <pre>
+      {{appProducts$ | async | json}}
+    </pre>
   </ng-template>
 
 </app-nav-bar>
