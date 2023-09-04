@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ICardsProductInterface} from "../shared/intarfaces/cards-product.interface";
 import {products$} from "../data";
 import {Unsubscribe} from "./utils/unsubscribe";
-import {Observable, Observer} from "rxjs";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -10,9 +10,16 @@ import {Observable, Observer} from "rxjs";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent extends Unsubscribe implements OnInit{
-  public products: ICardsProductInterface[] | undefined
+
+  //side-nav
   public appChangesToggleValue = false;
+
   public title = 'Angular_learnJS2020';
+
+  // for pipe
+  public searchText = ''
+  public value = '';
+  //// for pipe
 
   //with pipe async
   public appProducts$: Observable<ICardsProductInterface[]> = products$;
@@ -27,9 +34,14 @@ export class AppComponent extends Unsubscribe implements OnInit{
   }
 
   ngOnInit(): void {
-
   }
 
+  //for pipe
+  public searchInput(text :string):void{
+    this.searchText = text
+  }
+
+}
   // fore unsubscribe without pipe
   // ngOnInit(): void {
   //   products$
@@ -39,4 +51,4 @@ export class AppComponent extends Unsubscribe implements OnInit{
   //   })
   // }
 
-}
+
