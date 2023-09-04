@@ -3,6 +3,43 @@
   [headerTitle]="title"
 ></app-header>
 
-<app-nav-bar [toggleValue]="appChanges"></app-nav-bar>
+<app-nav-bar [toggleValue]="appChangesToggleValue">
+  <!--left side -->
+  <!--  <ng-content>-->
+  <div class="navbar_menu" (click)="onClickLeftSideMenu()">
+    <ul>
+      <li>Products</li>
+      <li>Category</li>
+      <li>Sale</li>
+    </ul>
+  </div>
+  <!--  </ng-content>-->
+
+
+  <ng-template #contentTemplate>
+
+    <mat-form-field color="accent" class="example-form-field">
+      <mat-label>Find your favorite</mat-label>
+      <input matInput type="text" #searchField  [(ngModel)]="value" (input)="searchInput(searchField.value)" >
+      <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <div class="card-wrapper" *ngIf="appProducts$ | async as products; else loader">
+      <ng-container *ngFor="let product of products | productsFilter: searchText">
+        <app-product-card [productCardForInterpolation]="product"></app-product-card>
+      </ng-container>
+    </div>
+  </ng-template>
+  <ng-template #loader>
+  <div class="spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+  </ng-template>
+
+
+</app-nav-bar>
+
 
 
