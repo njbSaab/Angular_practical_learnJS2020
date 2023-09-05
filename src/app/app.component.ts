@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ICardsProductInterface} from "../shared/intarfaces/cards-product.interface";
-import {products$} from "../data";
+import { products$} from "../data";
 import {Unsubscribe} from "./utils/unsubscribe";
 import {Observable} from "rxjs";
+import {MatCheckboxChange} from "@angular/material/checkbox";
 
 @Component({
   selector: 'app-root',
@@ -16,13 +17,23 @@ export class AppComponent extends Unsubscribe implements OnInit{
 
   public title = 'Angular_learnJS2020';
 
-  // for pipe
+  // for pipe filter
   public searchText = ''
   public value = '';
-  //// for pipe
+  //// for pipe filter
+  public onlyFavorites = false
 
-  //with pipe async
-  public appProducts$: Observable<ICardsProductInterface[]> = products$;
+  public appProducts$: Observable<ICardsProductInterface[]> = products$
+
+  //with pipe async if we receive object
+  // public appProducts$: Observable<ICardsProductInterface[]> = products$
+  //   .pipe(
+  // angular syntax
+  // pluck('products')
+  // standart syntax of js
+  //     map((res)=> res.products)
+  //   )
+
 
 
   public handleToggleChanges(isToggleValue: boolean){
@@ -34,6 +45,7 @@ export class AppComponent extends Unsubscribe implements OnInit{
   }
 
   ngOnInit(): void {
+
   }
 
   //for pipe
@@ -41,6 +53,10 @@ export class AppComponent extends Unsubscribe implements OnInit{
     this.searchText = text
   }
 
+  //checkbox
+  public toggleOnlyFavorite(event: MatCheckboxChange){
+    this.onlyFavorites = event.checked
+  }
 }
   // fore unsubscribe without pipe
   // ngOnInit(): void {
