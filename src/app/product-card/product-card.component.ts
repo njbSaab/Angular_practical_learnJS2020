@@ -8,5 +8,8 @@ import {ICardsProductInterface} from "../../shared/intarfaces/cards-product.inte
 })
 export class ProductCardComponent {
   @Input() productCardForInterpolation: ICardsProductInterface | undefined;
+  public toggleFavorite(): void{
+    this.productCardForInterpolation!.isFavorite = !this.productCardForInterpolation?.isFavorite
+  }
 }
 
