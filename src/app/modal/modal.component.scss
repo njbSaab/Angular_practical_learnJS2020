@@ -1,0 +1,30 @@
+.modal{
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,.7);
+  z-index: 99;
+
+}
+
+.modal.open {
+  display: block;
+}
+
+.modal.open .modal_content{
+      margin:15% auto;
+      width: 400px;
+      background: rgb(73, 72, 72);
+      color: white;
+      border-radius: 6px;
+      overflow: hidden;
+}
+.btn-right{
+  text-align: right;
+}

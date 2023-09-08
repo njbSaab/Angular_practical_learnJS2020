@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, Injectable, OnInit} from '@angular/core';
 import {ICardsProductInterface} from "../shared/intarfaces/cards-product.interface";
 import { products$} from "../data";
 import {Unsubscribe} from "./utils/unsubscribe";
 import {Observable} from "rxjs";
 import {MatCheckboxChange} from "@angular/material/checkbox";
+import {ProductService} from "./product.service";
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,7 @@ export class AppComponent extends Unsubscribe implements OnInit{
   //// for pipe filter
   public onlyFavorites = false
 
-  public appProducts$: Observable<ICardsProductInterface[]> = products$
+  public appProducts$!: Observable<ICardsProductInterface[]>;
 
   //with pipe async if we receive object
   // public appProducts$: Observable<ICardsProductInterface[]> = products$
@@ -34,8 +35,16 @@ export class AppComponent extends Unsubscribe implements OnInit{
   //     map((res)=> res.products)
   //   )
 
+  constructor(
+    @Inject(ProductService) private productsService:any
 
-
+  ) {
+    super();
+  }
+  ngOnInit(): void {
+    this.appProducts$ = this.productsService.getProducts()
+    this.appProducts$.subscribe((val) => console.log(val))
+  }
   public handleToggleChanges(isToggleValue: boolean){
     this.appChangesToggleValue = isToggleValue
   }
@@ -44,9 +53,7 @@ export class AppComponent extends Unsubscribe implements OnInit{
     console.log('click')
   }
 
-  ngOnInit(): void {
 
-  }
 
   //for pipe
   public searchInput(text :string):void{

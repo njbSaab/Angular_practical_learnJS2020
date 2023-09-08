@@ -12,7 +12,7 @@ export interface ICardsProductInterface{
   images: string[];
   isFavorite: boolean;
 }
-export interface firstProductVersion{
+export interface IFirstProductVersion{
   limit: number;
   products: ICardsProductInterface[];
   skip: number;

@@ -9,6 +9,11 @@ import {SharedModule} from "../shared/shared.module";
 import { HeaderComponent } from './header/header.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductsFilterPipe } from './products-filter.pipe';
+import {ProductService} from "./product.service";
+import {HttpClientModule} from "@angular/common/http";
+import {enviroment} from "../enviroment/enviroment";
+import {ModalModule} from "./modal/modal.module";
+import { CardComfirmComponent } from './product-card/card-comfirm/card-comfirm.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +22,29 @@ import { ProductsFilterPipe } from './products-filter.pipe';
     HeaderComponent,
     ProductCardComponent,
     ProductsFilterPipe,
+    CardComfirmComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule,
+    ModalModule,
+    AppRoutingModule
+    //   .forRoot(
+    //   [
+    //     {
+    //       path: 'login'
+    //     }
+    //   ]
+    // ),
   ],
-  providers: [],
+  providers: [ProductService,
+    {
+      provide: 'baseURL',
+      useValue: enviroment.baseURL
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
