@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {ICardsProductInterface} from "../../../shared/intarfaces/cards-product.interface";
+import {ICardsProductInterface} from "../../../../../../../shared/intarfaces/cards-product.interface";
 
 @Component({
   selector: 'app-card-comfirm',

@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {ICardsProductInterface} from "../../shared/intarfaces/cards-product.interface";
-import {ModalService} from "../modal/modal.service";
+import {ICardsProductInterface} from "../../../../../../shared/intarfaces/cards-product.interface";
+import {ModalService} from "../../../../../modal/modal.service";
 import {CardComfirmComponent} from "./card-comfirm/card-comfirm.component";
 
 @Component({
