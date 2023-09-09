@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {LoginComponent} from "./view/login/login.component";
-import {SignUpComponent} from "./view/sign-up/sign-up.component";
-import {AdminPanelComponent} from "./view/admin-panel/admin-panel.component";
-import {ProductsComponent} from "./view/admin-panel/content/products/products.component";
+import {AuthGuard} from "../shared/services/auth.guard";
 
 const routes: Routes =   [
   {
@@ -13,22 +10,16 @@ const routes: Routes =   [
   },
   {
     path: 'login',
-    component: LoginComponent
+    loadChildren: () => import('./view/login/login.module').then(mod => mod.LoginModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'signup',
-    component: SignUpComponent
+    loadChildren: () => import('./view/sign-up/sign-up.module').then(mod => mod.SignUpModule)
   },
   {
     path: 'admin-panel',
-    component: AdminPanelComponent,
-    children: [
-      {
-        path: '',
-        component: ProductsComponent
-      }
-
-    ]
+    loadChildren: () => import('./view/admin-panel/admin-panel.module').then(mod => mod.AdminPanelModule),
   },
   {
     path: '**',

@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {ICardsProductInterface} from "../shared/intarfaces/cards-product.interface";
+import {ICardsProductInterface} from "./intarfaces/cards-product.interface";
 
 @Pipe({
   name: 'productsFilter',

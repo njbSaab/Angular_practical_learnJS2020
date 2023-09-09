@@ -1,7 +1,7 @@
 import {Inject, Injectable} from '@angular/core';
 import {catchError, Observable, pluck, throwError} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-import {ICardsProductInterface, IFirstProductVersion} from "../shared/intarfaces/cards-product.interface";
+import {ICardsProductInterface, IFirstProductVersion} from "../../../../../../shared/intarfaces/cards-product.interface";
 
 @Injectable()
 export class ProductService {

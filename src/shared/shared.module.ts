@@ -10,11 +10,14 @@ import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {ProductsFilterPipe} from "./products-filter.pipe";
+import {HttpClientModule} from "@angular/common/http";
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [ProductsFilterPipe,
+  ],
   imports: [
     CommonModule
   ],
@@ -29,6 +32,8 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     FormsModule,
     MatProgressSpinnerModule,
     MatCheckboxModule,
+    ProductsFilterPipe,
+    HttpClientModule,
   ]
 })
 export class SharedModule { }

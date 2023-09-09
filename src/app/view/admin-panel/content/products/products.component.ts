@@ -2,7 +2,7 @@ import {Component, Inject} from '@angular/core';
 import {MatCheckboxChange} from "@angular/material/checkbox";
 import {Observable} from "rxjs";
 import {ICardsProductInterface} from "../../../../../shared/intarfaces/cards-product.interface";
-import {ProductService} from "../../../../product.service";
+import {ProductService} from "./product-card/product.service";
 
 @Component({
   selector: 'app-products',
