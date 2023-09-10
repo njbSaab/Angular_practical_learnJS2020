@@ -7,7 +7,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {ProductsFilterPipe} from "./products-filter.pipe";
@@ -34,6 +34,7 @@ import {HttpClientModule} from "@angular/common/http";
     MatCheckboxModule,
     ProductsFilterPipe,
     HttpClientModule,
+    ReactiveFormsModule,
   ]
 })
 export class SharedModule { }

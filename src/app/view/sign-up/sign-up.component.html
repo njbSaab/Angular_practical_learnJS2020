@@ -1,7 +1,58 @@
-<h1>Sign-UP</h1>
+<div class="auth">
 
-<div>
-  <button color="accent" mat-button (click)="goToLogin()">go to login <mat-icon>login</mat-icon></button>
+  <div class="auth-content">
+    <mat-card>
+      <mat-card-header>
+        <h1>Sign Up</h1>
+      </mat-card-header>
+      <mat-card-content>
+
+        <form [formGroup]="signupForm" (submit)="signup(signupForm.value)">
+
+          <mat-form-field appearance="outline"  color="accent">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Username" type="text"
+                   formControlName="username"
+            >
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Name</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" color="accent">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Placeholder">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
+
+          <div formGroupName="password">
+            <mat-form-field appearance="outline" color="accent">
+              <mat-label>Password</mat-label>
+              <input matInput placeholder="Password" type="password" formControlName="password">
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" color="accent">
+              <mat-label>Password</mat-label>
+              <input  matInput placeholder="Password" type="password" formControlName="password">
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+          </div>
+
+          <div style="display: flex;justify-content: center;gap: 10px">
+            <button color="accent" mat-raised-button type="submit"
+                    [disabled]="signupForm.invalid"
+            >Sign Up <mat-icon>done</mat-icon> </button>
+            <a mat-button color="warn" [routerLink]="['/login']">Go to login <mat-icon>how_to_reg</mat-icon></a>
+          </div>
+
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
+
 
 

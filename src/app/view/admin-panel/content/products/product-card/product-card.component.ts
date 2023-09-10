@@ -11,7 +11,6 @@ import {CardComfirmComponent} from "./card-comfirm/card-comfirm.component";
 export class ProductCardComponent {
   @Input() productCardForInterpolation: ICardsProductInterface | undefined;
 
-
   constructor(
     private readonly modalService: ModalService
   ) {

@@ -15,15 +15,17 @@ const routes: Routes =   [
   },
   {
     path: 'signup',
-    loadChildren: () => import('./view/sign-up/sign-up.module').then(mod => mod.SignUpModule)
+    loadChildren: () => import('./view/sign-up/sign-up.module').then(mod => mod.SignUpModule),
+
   },
   {
     path: 'admin-panel',
     loadChildren: () => import('./view/admin-panel/admin-panel.module').then(mod => mod.AdminPanelModule),
+    canActivate: [AuthGuard]
   },
   {
     path: '**',
-    redirectTo:'admin-panel'
+    redirectTo:'admin-panel',
   }
 ];
 

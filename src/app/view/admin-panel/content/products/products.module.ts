@@ -6,12 +6,17 @@ import {ProductsRoutingModule} from "./products-routing.module";
 import {SharedModule} from "../../../../../shared/shared.module";
 import {ProductService} from "./product-card/product.service";
 import {enviroment} from "../../../../../enviroment/enviroment";
-import {AuthGuard} from "../../../../../shared/services/auth.guard";
+import { OneProductComponent } from './one-product/one-product.component';
 
 
 
 @NgModule({
-  declarations: [ProductsComponent, ProductCardComponent],
+  declarations: [
+    ProductsComponent,
+    ProductCardComponent,
+    OneProductComponent,
+
+  ],
   imports: [
     CommonModule,
     SharedModule,
@@ -22,7 +27,6 @@ import {AuthGuard} from "../../../../../shared/services/auth.guard";
       provide: 'baseURL',
       useValue: enviroment.baseURL
     },
-
   ],
 })
 export class ProductsModule { }

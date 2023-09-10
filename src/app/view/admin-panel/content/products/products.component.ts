@@ -17,7 +17,6 @@ export class ProductsComponent {
   public value = '';
   //// for pipe filter
   public onlyFavorites = false
-
   public appProducts$!: Observable<ICardsProductInterface[]>;
 
   //with pipe async if we receive object
@@ -31,7 +30,6 @@ export class ProductsComponent {
 
   constructor(
     @Inject(ProductService) private productsService:any
-
   ) {
 
   }

@@ -17,7 +17,9 @@
 
     <div class="card-wrapper" *ngIf="appProducts$ | async as products; else loader">
       <ng-container *ngFor="let product of products | productsFilter: searchText: onlyFavorites">
-        <app-product-card [productCardForInterpolation]="product"></app-product-card>
+        <app-product-card
+          [productCardForInterpolation]="product"
+        ></app-product-card>
       </ng-container>
     </div>
 
